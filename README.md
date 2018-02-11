@@ -68,4 +68,19 @@
     return Seeder::seed();
   })
   ```
+  
+  # Using Docker to run the API
+  - Install docker
+  - Install laradocks inside the project file by running this command:
+  - Inside laradocks type:
+  ```sh
+  docker-compose up -d nginx mysql
+  ```
+  -Then run this command
+  ```sh
+  docker-compose exec workspace bash
+  composer install
+  
+  ```
+  - Connect to the database and then run the api
 
