@@ -9,10 +9,13 @@
   - write 'php artisan migrate' to migrate the new createdd table
   - create a job to handle the seeding 'php artisan make:job SeedingJob'
   - copy the content of DatabaseSeeder inside the run function and copy it inside the SeedinjJob handle function
-  - We need to dispatch the job create, so inside web.php use the Route::get('seed',function(){
-$job = (new SeedinJob())->delay()Carbon::now();
-dispatch($job);
-)
+  - We need to dispatch the job create, so inside web.php use the 
+  ```sh
+  Route::get('seed',function(){
+  $job = (new SeedinJob())->delay()Carbon::now();
+  dispatch($job);
+  );
+  ```
   - Final step is processing the job. Write 'php artisan queue:work'
 
 
