@@ -21,5 +21,25 @@
 
 # Creating the task as laravel plugin
 
+  -create a directory inside the project called packages
+  -create another directory inside call it 'package-name' with a directory inside name it'package-usage'
+  -now create another directory called src to make things orgnized
+  - You should have now packages->'package-name'->'package-usage'-> src and we will add scripts to it
+  -Run composer init. Now you should have a composer.json file
+  - Create directore routes and routes.php inside it.
+  - Create ServiceProvider
+  ```sh
+  public function boot(){
+  
+    require __DIR__.'/routes/routes.php';
+    
+   }
+  ```
+  -Register serviceProvider in config/app.php.
+  -Add the namespace inside the main composer.json file.
+  -Run 'composer dump-autoload'.
+  - Inside src create seeder.php.
+  - Create a class with a function inside that has the same code of the database seefer.
+  
 
 
