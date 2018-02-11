@@ -39,7 +39,33 @@
   -Add the namespace inside the main composer.json file.
   -Run 'composer dump-autoload'.
   - Inside src create seeder.php.
-  - Create a class with a function inside that has the same code of the database seefer.
+  - Create a class with a function inside that has the same code of the database seeder.
+  - Inside the serviceProvide.php file add this peice of code 
+  ```sh
+  public function register(){
   
-
+    $this->app->bind(''package-name'-'package-usage'',function(){
+      return new Seeder();
+   });
+  ``` 
+  - Create a directory called Facades with a script inside called Seeder.php
+  - Inside the script add the following:
+  ```sh
+  class Seeder extends Facade{
+    protected static functiongetFacadeAccessor(){
+      return ''package-name'-'package-usage''
+    }
+  }
+  ```
+  - Inside config/app add the following line inside the aliases array.
+  
+  ```sh
+  'Seeder' => 'package-name'\'package-usage'\Facades\Seeder::class,
+  ```  
+  - Inside the main routes\web.php add:
+  ```sh
+  Route::get('seed',function(){
+    return Seeder::seed();
+  })
+  ```
 
