@@ -12,7 +12,7 @@
   - We need to dispatch the job create, so inside web.php use the 
   ```sh
   Route::get('seed',function(){
-  $job = (new SeedinJob())->delay()Carbon::now();
+  $job = (new SeedingJob())->delay()Carbon::now();
   dispatch($job);
   );
   ```
