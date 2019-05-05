@@ -1,4 +1,4 @@
-# MoviesApi
+# MoviesApi Laravel Plugin
   Pulling the latest movies from https://www.themoviedb.org/.
 
 # Creating a schedule
