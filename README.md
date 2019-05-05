@@ -2,14 +2,14 @@
   Pulling the latest movies from https://www.themoviedb.org/.
 
 # Creating a schedule
-  Since I run my machine on windows not Unix I coudln't use cron job for task scheduling so I created a task that runs every day on my  machine and executes a command that seeds the database. The task simply calls db:seed.
+  Created a task that runs every day on my machine and executes a command that seeds the database. The task simply calls db:seed.
 
 # Using Laravel Queue to handle the seeder task
-  - create a table fo jobs write 'php artisan queue:table'
-  - write 'php artisan migrate' to migrate the new createdd table
+  - create a table for jobs, write 'php artisan queue:table'
+  - write 'php artisan migrate' to migrate the new created table
   - create a job to handle the seeding 'php artisan make:job SeedingJob'
-  - copy the content of DatabaseSeeder inside the run function and copy it inside the SeedinjJob handle function
-  - We need to dispatch the job create, so inside web.php use the 
+  - copy the content of DatabaseSeeder inside the run function and copy it inside the SeedingjJob handle function
+  - We need to dispatch the job, so inside web.php use the 
   ```sh
   Route::get('seed',function(){
   $job = (new SeedingJob())->delay()Carbon::now();
